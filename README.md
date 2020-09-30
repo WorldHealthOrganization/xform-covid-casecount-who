@@ -2,7 +2,7 @@
 
 ## About
 
-This is a template project for creating data transformers that can be registered with the [Data Registry](https://github.com/covid-open-data/data-registry).
+This is a template project for creating data transformers that can be registered with the [Data Registry](https://github.com/WorldHealthOrganization/covid-data-registry).
 The workflow for transformation is managed via [GitHub Actions](https://github.com/features/actions).
 
 ## Usage
