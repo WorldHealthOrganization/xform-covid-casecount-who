@@ -31,16 +31,20 @@ global <- d %>%
   arrange(date)
 
 who <- d %>%
+  filter(!admin0_code %in% c("XA", "XB", "XC")) %>%
   group_by(who_region_code, date) %>%
   summarise(cases = sum(cases), deaths = sum(deaths)) %>%
   arrange(who_region_code, date)
 
 cont <- d %>%
+  filter(!admin0_code %in% c("XA", "XB", "XC")) %>%
   group_by(continent_code, date) %>%
   summarise(cases = sum(cases), deaths = sum(deaths)) %>%
   arrange(continent_code, date)
 
-admin0 <- select(d, admin0_code, date, cases, deaths)
+admin0 <- d %>%
+  filter(!admin0_code %in% c("XA", "XB", "XC")) %>%
+  select(admin0_code, date, cases, deaths)
 
 stopifnot(select(d, admin0_code, date) %>% distinct() %>% nrow() == nrow(d))
 
